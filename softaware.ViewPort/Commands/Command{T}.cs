@@ -26,7 +26,9 @@ namespace softaware.ViewPort.Commands
             this.canExecute = canExecute;
         }
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Raises the <see cref="CanExecuteChanged"/> event.
+        /// </summary>
         public void RaiseCanExecuteChanged() => this.CanExecuteChanged?.Invoke(this, EventArgs.Empty);
 
         /// <summary>

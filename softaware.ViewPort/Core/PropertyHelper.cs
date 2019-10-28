@@ -50,29 +50,29 @@ namespace softaware.ViewPort
         {
             var propertyName = GetPropertyName(propertyExpression);
             var compiledExpression = propertyExpression.Compile();
-            PropertyChangedEventHandler handler = (s, e) =>
+            
+            void OnPropertyChanged(object s, PropertyChangedEventArgs e)
             {
                 if (e.PropertyName == propertyName)
                 {
                     action(compiledExpression(notifyPropertyChanged));
                 }
-            };
+            }
 
-            notifyPropertyChanged.PropertyChanged += handler;
-            return handler;
+            notifyPropertyChanged.PropertyChanged += OnPropertyChanged;
+            return OnPropertyChanged;
         }
 
         /// <summary>
         /// Gets the name of the property.
         /// </summary>
-        /// <param name="propertyExpression">The property expression. This can either be an Expression&lt;Func&lt;T, TProperty&gt;&gt; or an Expression&lt;TProperty&gt;</param>
+        /// <param name="propertyExpression">The property expression. This can either be an Expression&lt;Func&lt;T, TProperty&gt;&gt; or an Expression&lt;TProperty&gt;.</param>
         /// <returns>The name of the property.</returns>
         private static string GetPropertyName(LambdaExpression propertyExpression)
         {
             MemberExpression memberExpression;
 
-            var unaryExpression = propertyExpression.Body as UnaryExpression;
-            if (unaryExpression != null)
+            if (propertyExpression.Body is UnaryExpression unaryExpression)
             {
                 memberExpression = unaryExpression.Operand as MemberExpression;
             }

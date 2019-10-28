@@ -1,7 +1,7 @@
-﻿using FakeItEasy;
+﻿using System;
+using FakeItEasy;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using softaware.ViewPort.Messaging;
-using System;
 
 namespace softaware.ViewPort.Tests
 {
@@ -231,7 +231,6 @@ namespace softaware.ViewPort.Tests
         public void TestWeakReferenceDelegateReceiverNoReference()
         {
             bool wasReceived = false;
-            
 
             var message = new Message<string>("Test");
 
@@ -309,9 +308,8 @@ namespace softaware.ViewPort.Tests
         }
 
         /// <summary>
-        /// See https://stackoverflow.com/questions/15205891/garbage-collection-should-have-removed-object-but-weakreference-isalive-still-re
+        /// See https://stackoverflow.com/questions/15205891/garbage-collection-should-have-removed-object-but-weakreference-isalive-still-re.
         /// </summary>
-
         private T CallInOwnScope<T>(Func<T> func)
         {
             return func();

@@ -1,8 +1,8 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using softaware.ViewPort.Commands;
-using System;
+﻿using System;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using softaware.ViewPort.Commands;
 
 namespace softaware.ViewPort.Tests
 {

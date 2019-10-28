@@ -1,10 +1,10 @@
-﻿using Microsoft.Win32;
-using System;
+﻿using System;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using Microsoft.Win32;
 using softaware.ViewPort.UserInteraction;
 
 namespace softaware.ViewPort.Wpf.UserInteraction
@@ -33,8 +33,8 @@ namespace softaware.ViewPort.Wpf.UserInteraction
         public Task<UserFile> GetFileToReadAsync(params FileType[] fileTypes)
         {
             var scheduler = TaskScheduler.FromCurrentSynchronizationContext();
-            return Task.Factory.StartNew<UserFile>(
-                delegate
+            return Task.Factory.StartNew(
+                () =>
                 {
                     FileDialog dialog = new OpenFileDialog()
                     {
@@ -93,7 +93,7 @@ namespace softaware.ViewPort.Wpf.UserInteraction
         {
             var scheduler = TaskScheduler.FromCurrentSynchronizationContext();
             return Task.Factory.StartNew(
-                delegate
+                () =>
                 {
                     var dialog = new System.Windows.Forms.FolderBrowserDialog()
                     {

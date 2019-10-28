@@ -1,8 +1,8 @@
-﻿using softaware.ViewPort.UserInteraction;
-using System;
+﻿using System;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using softaware.ViewPort.UserInteraction;
 using Windows.ApplicationModel.Resources;
 using Windows.Storage.Pickers;
 using Windows.UI.Popups;
@@ -36,20 +36,32 @@ namespace softaware.ViewPort.Uwp.UserInteraction
                     dialog.Commands.Add(new UICommand(resources.GetString("OK")) { Id = UserInputResult.Ok });
                     dialog.Commands.Add(new UICommand(resources.GetString("Cancel")) { Id = UserInputResult.Cancel });
                     dialog.CancelCommandIndex = 1;
+
                     if (defaultResult == UserInputResult.Ok)
+                    {
                         dialog.DefaultCommandIndex = 0;
+                    }
                     else
+                    {
                         dialog.DefaultCommandIndex = 1;
+                    }
+
                     break;
 
                 case UserInputOption.YesNo:
                     dialog.Commands.Add(new UICommand(resources.GetString("Yes")) { Id = UserInputResult.Yes });
                     dialog.Commands.Add(new UICommand(resources.GetString("No")) { Id = UserInputResult.No });
                     dialog.CancelCommandIndex = 1;
+                    
                     if (defaultResult == UserInputResult.Yes)
+                    {
                         dialog.DefaultCommandIndex = 0;
+                    }
                     else
+                    {
                         dialog.DefaultCommandIndex = 1;
+                    }
+
                     break;
 
                 case UserInputOption.YesNoCancel:
@@ -57,6 +69,7 @@ namespace softaware.ViewPort.Uwp.UserInteraction
                     dialog.Commands.Add(new UICommand(resources.GetString("No")) { Id = UserInputResult.No });
                     dialog.Commands.Add(new UICommand(resources.GetString("Cancel")) { Id = UserInputResult.Cancel });
                     dialog.CancelCommandIndex = 2;
+                    
                     switch (defaultResult)
                     {
                         case UserInputResult.Yes:
@@ -69,6 +82,7 @@ namespace softaware.ViewPort.Uwp.UserInteraction
                             dialog.DefaultCommandIndex = 2;
                             break;
                     }
+
                     break;
             }
 

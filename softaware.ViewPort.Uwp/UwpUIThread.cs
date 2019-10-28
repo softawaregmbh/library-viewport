@@ -9,7 +9,8 @@ namespace softaware.ViewPort.WinRT
     {       
         private readonly CoreDispatcher dispatcher;
 
-        public UwpUIThread() : this(CoreWindow.GetForCurrentThread().Dispatcher)
+        public UwpUIThread()
+            : this(CoreWindow.GetForCurrentThread().Dispatcher)
         {
         }
 
@@ -34,7 +35,7 @@ namespace softaware.ViewPort.WinRT
         {
             var taskSource = new TaskCompletionSource<bool>();
             
-            var _ = this.dispatcher.RunAsync(
+            var result = this.dispatcher.RunAsync(
                 CoreDispatcherPriority.Normal,
                 new DispatchedHandler(async () =>
                 {

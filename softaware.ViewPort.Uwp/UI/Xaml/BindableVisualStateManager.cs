@@ -46,8 +46,7 @@ namespace softaware.ViewPort.Uwp.UI.Xaml
                 return;
             }
 
-            var element = d as FrameworkElement;
-            if (element != null)
+            if (d is FrameworkElement element)
             {
                 var manager = (BindableVisualStateManager)VisualStateManager.GetCustomVisualStateManager(element);
                 if (manager != null)

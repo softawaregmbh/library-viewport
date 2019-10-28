@@ -70,7 +70,8 @@ namespace softaware.ViewPort.Core
         [Conditional("DEBUG")]
         private void VerifyPropertyName(string propertyName)
         {
-            Debug.Assert(this.GetType().GetRuntimeProperty(propertyName) != null);
+            var type = this.GetType();
+            Debug.Assert(type.GetRuntimeProperty(propertyName) != null, $"Property \"{propertyName}\" does not exist on type \"{type.FullName}\"");
         }
     }
 }

@@ -39,7 +39,6 @@ namespace softaware.ViewPort.Tests
             Assert.AreEqual("Name", test.GetPropertyName(t => t.Name));
         }
 
-
         [TestMethod]
         public void TestExecuteOnPropertyChangedWithArguments()
         {
