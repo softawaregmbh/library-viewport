@@ -7,6 +7,7 @@
     <PackageIconUrl>https://secure.gravatar.com/avatar/d441f5a5514d2afce7da518a89f028d0?s=512&amp;amp;amp;r=g&amp;amp;amp;d=retro</PackageIconUrl>
     <Description>Platform-independent library containing MVVM essentials like a base class for INotifyPropertyChanged, (async) commands, and abstractions for platform specific APIs such as user interaction (MessageBox, FilePicker, ...) or the UI thread.</Description>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <PackageTags>softaware MVVM portable ViewModel</PackageTags>
     <RepositoryType>git</RepositoryType>
     <PackageProjectUrl>https://github.com/softawaregmbh/library-viewport</PackageProjectUrl>
@@ -20,14 +21,6 @@
     <FileVersion>1.0.0.0</FileVersion>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <Copyright>Copyright 2019</Copyright>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>bin\Debug\softaware.ViewPort.XML</DocumentationFile>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>bin\Release\softaware.ViewPort.XML</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

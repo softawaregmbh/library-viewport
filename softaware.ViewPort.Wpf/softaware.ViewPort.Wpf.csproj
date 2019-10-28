@@ -5,6 +5,7 @@
     <UseWPF>true</UseWPF>
     <UseWindowsForms>true</UseWindowsForms>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <Authors>softaware gmbh</Authors>
     <Company>softaware gmbh</Company>
     <PackageIconUrl>https://secure.gravatar.com/avatar/d441f5a5514d2afce7da518a89f028d0?s=512&amp;amp;amp;r=g&amp;amp;amp;d=retro</PackageIconUrl>
@@ -22,14 +23,6 @@
     <FileVersion>1.0.0.0</FileVersion>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <Copyright>Copyright 2019</Copyright>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netcoreapp3.0|AnyCPU'">
-    <DocumentationFile>bin\Release\net461\softaware.ViewPort.Wpf.XML</DocumentationFile>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netcoreapp3.0|AnyCPU'">
-    <DocumentationFile>bin\Debug\net461\softaware.ViewPort.Wpf.XML</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
