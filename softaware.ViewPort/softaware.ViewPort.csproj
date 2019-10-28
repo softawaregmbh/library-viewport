@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <Authors>softaware gmbh</Authors>
     <Company>softaware gmbh</Company>
-    <PackageIconUrl>https://secure.gravatar.com/avatar/d441f5a5514d2afce7da518a89f028d0?s=512&amp;amp;amp;r=g&amp;amp;amp;d=retro</PackageIconUrl>
+    <PackageIcon>icon.png</PackageIcon>
     <Description>Platform-independent library containing MVVM essentials like a base class for INotifyPropertyChanged, (async) commands, and abstractions for platform specific APIs such as user interaction (MessageBox, FilePicker, ...) or the UI thread.</Description>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
@@ -12,7 +12,7 @@
     <RepositoryType>git</RepositoryType>
     <PackageProjectUrl>https://github.com/softawaregmbh/library-viewport</PackageProjectUrl>
     <RepositoryUrl>https://github.com/softawaregmbh/library-viewport</RepositoryUrl>
-    <PackageLicenseUrl>https://github.com/softawaregmbh/library-viewport/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Version>1.0.0</Version>
     <PackageId>softaware.ViewPort</PackageId>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
@@ -22,6 +22,10 @@
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <Copyright>Copyright 2019</Copyright>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="..\icon.png" Link="icon.png" />
+  </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Properties\" />
