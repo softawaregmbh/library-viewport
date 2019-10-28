@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Authors>Daniel Sklenitzka</Authors>
+    <Authors>softaware gmbh</Authors>
     <Company>softaware gmbh</Company>
     <PackageIconUrl>https://secure.gravatar.com/avatar/d441f5a5514d2afce7da518a89f028d0?s=512&amp;amp;amp;r=g&amp;amp;amp;d=retro</PackageIconUrl>
     <Description>A messaging extension for the softaware.ViewPort library to facilitate communication between ViewModels.</Description>

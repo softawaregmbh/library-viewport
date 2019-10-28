@@ -5,7 +5,7 @@
     <UseWPF>true</UseWPF>
     <UseWindowsForms>true</UseWindowsForms>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Authors>Daniel Sklenitzka</Authors>
+    <Authors>softaware gmbh</Authors>
     <Company>softaware gmbh</Company>
     <PackageIconUrl>https://secure.gravatar.com/avatar/d441f5a5514d2afce7da518a89f028d0?s=512&amp;amp;amp;r=g&amp;amp;amp;d=retro</PackageIconUrl>
     <Description>WPF implementation of the platform-independent abstractions defined in the softaware.ViewPort library.</Description>
