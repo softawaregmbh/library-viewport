@@ -24,7 +24,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="..\icon.png" Link="icon.png" />
+    <None Include="..\icon.png" Pack="true" PackagePath="\" Link="icon.png"/>
   </ItemGroup>
 
   <ItemGroup>
