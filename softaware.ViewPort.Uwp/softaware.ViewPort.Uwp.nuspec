@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>softaware.ViewPort.Uwp</id>
+    <version>1.0.0</version>
+    <title>softaware.ViewPort.Uwp</title>
+    <authors>Daniel Sklenitzka</authors>
+    <owners>softaware gmbh</owners>
+    <licenseUrl>https://github.com/softawaregmbh/library-viewport/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/softawaregmbh/library-viewport</projectUrl>
+    <iconUrl>https://secure.gravatar.com/avatar/d441f5a5514d2afce7da518a89f028d0?s=512&amp;amp;amp;r=g&amp;amp;amp;d=retro</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>UWP implementation of the platform-independent abstractions defined in the softaware.ViewPort library.</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright 2019</copyright>
+    <tags>softaware MVVM portable ViewModel UWP</tags>
+  </metadata>
+</package>
