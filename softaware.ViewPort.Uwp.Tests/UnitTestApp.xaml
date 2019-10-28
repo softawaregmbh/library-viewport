@@ -1,0 +1,7 @@
+﻿<Application
+    x:Class="softaware.ViewPort.Uwp.Tests.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:softaware.ViewPort.Uwp.Tests">
+
+</Application>
