@@ -47,9 +47,40 @@ namespace softaware.ViewPort.Commands
         public void Execute(T parameter) => this.execute(parameter);
 
         /// <inheritdoc />
-        bool ICommand.CanExecute(object parameter) => this.CanExecute((T)parameter);
+        bool ICommand.CanExecute(object parameter)
+        {
+            if (this.canExecute == null)
+            {
+                return true;
+            }
+
+            if (parameter == null && typeof(T).IsValueType)
+            {
+                return false;
+            }
+
+            if (parameter == null || parameter is T)
+            {
+                return this.CanExecute((T)parameter);
+            }
+
+            return false;
+        }
 
         /// <inheritdoc />
-        void ICommand.Execute(object parameter) => this.Execute((T)parameter);
+        void ICommand.Execute(object parameter)
+        {
+            if (parameter == null && typeof(T).IsValueType && Nullable.GetUnderlyingType(typeof(T)) == null)
+            {
+                throw new ArgumentNullException(nameof(parameter));
+            }
+
+            if (parameter != null && parameter is not T)
+            {
+                throw new ArgumentException($"Parameter is required type {typeof(T).FullName}");
+            }
+
+            this.Execute((T)parameter);
+        }
     }
 }

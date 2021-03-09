@@ -48,9 +48,35 @@ namespace softaware.ViewPort.Commands
         public async Task ExecuteAsync(T parameter) => await this.executeAsync(parameter);
 
         /// <inheritdoc />
-        bool ICommand.CanExecute(object parameter) => this.CanExecute((T)parameter);
+        bool ICommand.CanExecute(object parameter)
+        {
+            if (this.canExecute == null)
+            {
+                return true;
+            }
+
+            if (parameter == null && typeof(T).IsValueType)
+            {
+                return false;
+            }
+
+            if (parameter == null || parameter is T)
+            {
+                return this.CanExecute((T)parameter);
+            }
+
+            return false;
+        }
 
         /// <inheritdoc />
-        async void ICommand.Execute(object parameter) => await this.ExecuteAsync((T)parameter);
+        async void ICommand.Execute(object parameter) 
+        {
+            if (parameter != null && parameter is not T)
+            {
+                throw new ArgumentException($"Parameter is required type {typeof(T).FullName}");
+            }
+
+            await this.ExecuteAsync((T)parameter);
+        }
     }
 }
