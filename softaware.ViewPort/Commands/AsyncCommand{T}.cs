@@ -12,6 +12,8 @@ namespace softaware.ViewPort.Commands
     {
         private readonly Func<T, Task> executeAsync;
         private readonly Func<T, bool> canExecute;
+        private readonly bool isValueType;
+        private readonly Type underlyingNullableType;
 
         /// <inheritdoc />
         public event EventHandler CanExecuteChanged;
@@ -25,6 +27,8 @@ namespace softaware.ViewPort.Commands
         {
             this.executeAsync = executeAsync ?? throw new ArgumentNullException(nameof(executeAsync));
             this.canExecute = canExecute;
+            this.isValueType = typeof(T).IsValueType;
+            this.underlyingNullableType = Nullable.GetUnderlyingType(typeof(T));
         }
 
         /// <summary>
@@ -55,7 +59,7 @@ namespace softaware.ViewPort.Commands
                 return true;
             }
 
-            if (parameter == null && typeof(T).IsValueType)
+            if (parameter == null && this.isValueType)
             {
                 return false;
             }
@@ -71,6 +75,11 @@ namespace softaware.ViewPort.Commands
         /// <inheritdoc />
         async void ICommand.Execute(object parameter) 
         {
+            if (parameter == null && this.isValueType && this.underlyingNullableType == null)
+            {
+                throw new ArgumentNullException(nameof(parameter));
+            }
+
             if (parameter != null && parameter is not T)
             {
                 throw new ArgumentException($"Parameter is required type {typeof(T).FullName}");
