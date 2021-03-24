@@ -12,13 +12,16 @@ namespace softaware.ViewPort.Tests
         public void TestIntParameter()
         {
             Command<int> command = new Command<int>(i => Console.WriteLine(i));
+            Assert.IsFalse(((ICommand)command).CanExecute(null));
             ((ICommand)command).Execute(1);
+            Assert.ThrowsException<ArgumentNullException>(() => ((ICommand)command).Execute(null));
         }
 
         [TestMethod]
         public void TestNullableIntParameter()
         {
             Command<int?> command = new Command<int?>(i => Console.WriteLine(i));
+            Assert.IsTrue(((ICommand)command).CanExecute(null));
             ((ICommand)command).Execute(null);
         }
 
