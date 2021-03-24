@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using softaware.ViewPort.Commands;
@@ -12,21 +11,25 @@ namespace softaware.ViewPort.Tests
         [TestMethod]
         public void TestIntParameter()
         {
+            Command<int> command = new Command<int>(i => Console.WriteLine(i));
+            Assert.IsFalse(((ICommand)command).CanExecute(null));
+            ((ICommand)command).Execute(1);
+            Assert.ThrowsException<ArgumentNullException>(() => ((ICommand)command).Execute(null));
+        }
+
+        [TestMethod]
+        public void TestNullableIntParameter()
+        {
             Command<int?> command = new Command<int?>(i => Console.WriteLine(i));
+            Assert.IsTrue(((ICommand)command).CanExecute(null));
             ((ICommand)command).Execute(null);
         }
 
         [TestMethod]
-        public async Task TestExceptionInAsyncCommand() 
+        public void TestWrongParameter()
         {
-            AsyncCommand command = new AsyncCommand(this.ThrowAsync);
-            await Assert.ThrowsExceptionAsync<InvalidOperationException>(async () => await command.ExecuteAsync());
-        }
-
-        private async Task ThrowAsync() 
-        {
-            await Task.Delay(1);
-            throw new InvalidOperationException();
+            Command<int> command = new Command<int>(i => Console.WriteLine(i));
+            Assert.ThrowsException<ArgumentException>(() => ((ICommand)command).Execute("Test"));
         }
     }
 }
